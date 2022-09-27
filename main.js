@@ -25,7 +25,7 @@ const headerAnimation = (myHeader) => {
 //Create logic of the game
 const result = (num, guessCount = 5) => {
   let numberGened = Math.floor(Math.random() * num) + 1;
-
+  console.log(numberGened);
   formTag.addEventListener("submit", (e) => {
     e.preventDefault();
     if (
@@ -34,22 +34,19 @@ const result = (num, guessCount = 5) => {
     ) {
       divTagResult.innerText = "you guessed it!!!, on your first try!!!!";
     } else if (guessCount !== 0) {
-      if (Number(e.target.elements.guess.value) > num) {
-        guessCount = guessCount - 1;
-        guessCountSpan.innerText = `${guessCount}`;
-        e.target.elements.guess.value = num;
-        confirm(`you are out of range`);
-      } else if (Number(e.target.elements.guess.value) === numberGened) {
+      if (Number(e.target.elements.guess.value) === numberGened) {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
         divTagResult.innerText = "you guessed right";
         bodyTag.style.backgroundColor = "#8284f7bd";
-      } else if (Number(e.target.elements.guess.value) > numberGened) {
+      }
+      if (Number(e.target.elements.guess.value) > numberGened) {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
         divTagResult.innerText = "you guessed high";
         bodyTag.style.backgroundColor = "yellow";
-      } else if (Number(e.target.elements.guess.value) < numberGened) {
+      }
+      if (Number(e.target.elements.guess.value) < numberGened) {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
         divTagResult.innerText = "you guessed low";
@@ -57,6 +54,10 @@ const result = (num, guessCount = 5) => {
       }
     } else {
       divTagResult.innerText = "your out of guess";
+      bodyTag.style.backgroundColor = "orangered";
+      setInterval(() => {
+        location.reload();
+      }, 4000);
     }
   });
 };
@@ -71,19 +72,23 @@ const difficultyChoise = () => {
       liMedium.style.display = "none";
       liDifficult.style.display = "none";
       result(15);
-    } else if (e.target.innerText === "Medium") {
+    }
+    if (e.target.innerText === "Medium") {
       liMedium.innerText = "range : 0-20";
       liMedium.style.fontSize = "40px";
       liMedium.style.textShadow = "1px 1px 4px white";
       liEasy.style.display = "none";
       liDifficult.style.display = "none";
+
       result(20);
-    } else if (e.target.innerText === "Hard") {
+    }
+    if (e.target.innerText === "Hard") {
       liDifficult.innerText = "range : 0-30";
       liDifficult.style.fontSize = "40px";
       liDifficult.style.textShadow = "1px 1px 4px white";
       liEasy.style.display = "none";
       liMedium.style.display = "none";
+
       result(30);
     }
   });
@@ -95,10 +100,11 @@ const resetButton = (tag, level) => {
     tag.style.display = "block";
     tag.style.textShadow = "";
     tag.style.fontSize = "20px";
-    tag.innerText = level;
+    tag.innerText = `${level}`;
     guessCountSpan.innerText = 5;
     bodyTag.style.backgroundColor = "rgb(15, 2, 48)";
     inputTag.value = "";
+    // location.reload();
   });
 };
 
