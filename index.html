@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GuessGame</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script src="main.js" async defer></script>
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+      <div class="result"></div>
+    </header>
+    <hr />
+    <main>
+      <section class="count">
+        <div>count:<span>5</span></div>
+      </section>
+      <section id="sectionOne">
+        <h2 class="difficult">difficulty:</h2>
+        <ul>
+          <li id="easy">Easy</li>
+          <li id="medium">Medium</li>
+          <li id="difficult">Hard</li>
+        </ul>
+        <h3>reset</h3>
+
+        <form id="myForm">
+          <label for="guess">Enter here:</label>
+          <input type="number" id="guess" />
+          <input type="submit" value="submit" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
