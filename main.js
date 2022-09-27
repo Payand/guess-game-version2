@@ -37,7 +37,7 @@ const result = (num, guessCount = 5) => {
       if (Number(e.target.elements.guess.value) > num) {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
-        e.target.elements.guess.value = "0";
+        e.target.elements.guess.value = num;
         confirm(`you are out of range`);
       } else if (Number(e.target.elements.guess.value) === numberGened) {
         guessCount = guessCount - 1;
