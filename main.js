@@ -44,20 +44,18 @@ const result = (num, guessCount = 5) => {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
         divTagResult.innerText = "you guessed high";
-        bodyTag.style.backgroundColor = "yellow";
+        bodyTag.style.backgroundColor = "rgb(0, 49, 0)";
       }
       if (Number(e.target.elements.guess.value) < numberGened) {
         guessCount = guessCount - 1;
         guessCountSpan.innerText = `${guessCount}`;
         divTagResult.innerText = "you guessed low";
-        bodyTag.style.backgroundColor = "brown";
+        bodyTag.style.backgroundColor = "rgb(51, 0, 0)";
       }
     } else {
       divTagResult.innerText = "your out of guess";
-      bodyTag.style.backgroundColor = "orangered";
-      setInterval(() => {
-        location.reload();
-      }, 4000);
+      divTagResult.style.fontSize = "100px";
+      bodyTag.style.backgroundColor = "black";
     }
   });
 };

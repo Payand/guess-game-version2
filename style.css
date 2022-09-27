@@ -160,3 +160,7 @@ input:last-child {
   border-radius: 10px;
   margin-bottom: 50px;
 }
+
+ol {
+  color: rgb(51, 0, 0);
+}
